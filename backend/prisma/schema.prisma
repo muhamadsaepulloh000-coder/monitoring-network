@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Device {
+  id          String   @id @default(uuid()) @db.Uuid
+  identityKey String   @unique @map("identity_key")
+  ip          String   @db.Inet
+  mac         String?
+  hostname    String?
+  isOnline    Boolean  @default(true) @map("is_online")
+  missedScans Int      @default(0) @map("missed_scans")
+  firstSeen   DateTime @default(now()) @map("first_seen") @db.Timestamptz(3)
+  lastSeen    DateTime @default(now()) @map("last_seen") @db.Timestamptz(3)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([ip])
+  @@index([isOnline, lastSeen])
+  @@map("devices")
+}

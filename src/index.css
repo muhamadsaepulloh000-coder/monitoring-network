@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #0B0D10;
+  color: #e2e8f0;
+  --bg: #0b0d10;
+  --bg-elevated: #10161d;
+  --bg-surface: #151a21;
+  --panel: #1b222c;
+  --panel-strong: #0f141a;
+  --line: #202933;
+  --line-strong: #2a3442;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
